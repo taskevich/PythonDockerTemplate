@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  application:
+    container_name: "application"
+    build:
+      context: src/backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./src/backend:/src/backend
+      - ./src/runtime:/src/runtime
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
